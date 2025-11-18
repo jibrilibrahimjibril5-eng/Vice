@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | ViceWeb</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 
 <body>
@@ -21,18 +21,18 @@
 
 <section class="contact-section">
     <h1>Contact Us</h1>
-    <p>Got questions or want to work with us? Send us a message below.</p>
+    <p>Have a question or want to work with us? Send a message below.</p>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <textarea placeholder="Your Message..." rows="6" required></textarea>
+    <form action="https://formspree.io/f/xknagwzz" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <textarea name="message" placeholder="Write your message..." required></textarea>
         <button type="submit">Send Message</button>
     </form>
 </section>
 
 <footer>
-    <p>© 2025 ViceWeb — All Rights Reserved.</p>
+    <p>© 2025 ViceWeb — Designed & Developed by JIBRIL</p>
 </footer>
 
 </body>
