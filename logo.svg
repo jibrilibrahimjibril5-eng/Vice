@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="120" viewBox="0 0 420 120">
+  <rect width="420" height="120" rx="12" fill="none"/>
+  <!-- Icon circle -->
+  <circle cx="60" cy="60" r="44" fill="#000000"/>
+  <!-- V letter inside icon -->
+  <path d="M40 48 L60 82 L84 40" stroke="#00Eaff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Text -->
+  <text x="120" y="75" font-family="Poppins, Arial, Helvetica, sans-serif" font-weight="700" font-size="40" fill="#0a0a0a">VICEWEB</text>
+</svg>

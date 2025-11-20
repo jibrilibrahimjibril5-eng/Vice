@@ -26,10 +26,7 @@ nav {
   z-index: 10;
 }
 
-nav img {
-  width: 100px;
-  height: auto;
-}
+nav img { width:180px; height:auto; }
 
 nav ul {
   list-style: none;
