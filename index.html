@@ -1,49 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViceWeb - Modern Web Experience</title>
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
-
-    <!-- SEO -->
-    <meta name="description" content="ViceWeb: A modern website built with clean UX, fast performance and smart design.">
-    <meta name="keywords" content="ViceWeb, Website, Modern UI, Developer, Web Hosting">
-    <meta name="author" content="Jibril Ibrahim">
-
-</head>
-<body>
-
-    <!-- Navbar -->
-    <header class="navbar">
-        <a href="index.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viceweb</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
-<a href="index.html">
-  <img src="logo.svg" alt="Viceweb Logo" style="width:180px; height:auto;">
-</a>
-        <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: black;
+      padding: 15px 30px;
+    }
+
+    nav img {
+      width: 160px;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: cyan;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #444;
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html"><img src="logo.svg" alt="Viceweb Logo"></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to ViceWeb</h1>
-        <p>Fast, Modern & Beautiful Web Experience 🚀</p>
-        <button onclick="showAlert()">Get Started</button>
-    </section>
+<!-- Main Content -->
+<div class="hero">
+  <h1>Welcome to Viceweb 🌍</h1>
+  <p>Your journey into modern web technology begins here — learn, build and grow.</p>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 ViceWeb | Built by Jibril | Powered by Vercel</p>
-    </footer>
-
-<script src="script.js"></script>
 </body>
 </html>
