@@ -74,11 +74,11 @@
 
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-  <ul id="nav-links" class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+  <ul id="nav-menu" class="nav-links">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+</ul>
 </nav>
 
 <!-- Main Content -->
@@ -88,7 +88,7 @@
 </div>
 <script>
 function toggleMenu() {
-  document.querySelector(".nav-links").classList.toggle("show");
+  document.getElementById("nav-menu").classList.toggle("show");
 }
 </script>
 </body>
