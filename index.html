@@ -1,92 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viceweb</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViceWeb</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f3f3;
-    }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: black;
-      padding: 15px 30px;
-    }
-
-    nav img {
-      width: 160px;
-      height: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: cyan;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #444;
-      max-width: 600px;
-      margin: auto;
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<nav>
-  <a href="index.html">
-    <img src="logo.svg" alt="Viceweb Logo" style="width:160px; height:auto;">
-  </a>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="logo.svg" alt="Viceweb Logo">
+    </a>
 
-<!-- Main Content -->
-<div class="hero">
-  <h1>Welcome to Viceweb 🌍</h1>
-  <p>Your journey into modern web technology begins here — learn, build and grow.</p>
-</div>
-<script>
-function toggleMenu() {
-  document.getElementById("nav-menu").classList.toggle("show");
-}
-</script>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Mobile Menu -->
+    <div class="menu-toggle">&#9776;</div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <h1>Welcome to ViceWeb</h1>
+    <p>Your modern, simple, and powerful website interface.</p>
+    <a href="about.html" class="btn">Learn More</a>
+  </header>
+
 </body>
+
 </html>
