@@ -5,29 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Viceweb</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("kZd8LNzWr8fU4Z5VN"); // <-- Public Key
+    })();
+  </script>
 </head>
 
 <body>
 
 <nav>
-  <a href="index.html"><img src="logo.svg" alt="ViceWeb Logo" style="width:160px;"></a>
+  <a href="index.html"><img src="logo.svg" style="width:160px;"></a>
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <h1>Contact Us</h1>
-  <p>Have a question or want to work with us? Send a message.</p>
+<section class="contact-section">
+  <h2>Contact Us</h2>
+
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="title" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <p id="statusMessage"></p>
 </section>
 
-<footer>
-  <p>© 2025 Viceweb — All Rights Reserved.</p>
-</footer>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_lpmq1v9",   // YOUR SERVICE ID
+      "template_gjf55f9",  // YOUR TEMPLATE ID
+      this
+    ).then(() => {
+      document.getElementById("statusMessage").innerText = "Message Sent Successfully ✔️";
+      document.getElementById("contactForm").reset();
+    }, (error) => {
+      document.getElementById("statusMessage").innerText = "Failed to send ❌";
+    });
+  });
+</script>
 
 </body>
 </html>
