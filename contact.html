@@ -43,19 +43,26 @@
 </section>
 
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
+  // VERY IMPORTANT → your public key
+  emailjs.init("ObFlB4DpI0uY3nqaB"); 
+
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_lpmq1v9",   // YOUR SERVICE ID
-      "template_gjf55f9",  // YOUR TEMPLATE ID
+      "service_lpmq1v9",   // your service ID
+      "template_gjf55f9",  // your template ID
       this
     ).then(() => {
-      document.getElementById("statusMessage").innerText = "Message Sent Successfully ✔️";
+      document.getElementById("statusMessage").innerText =
+        "Message Sent Successfully ✔️";
       document.getElementById("contactForm").reset();
-    }, (error) => {
-      document.getElementById("statusMessage").innerText = "Failed to send ❌";
+    }, () => {
+      document.getElementById("statusMessage").innerText =
+        "Failed to send ❌";
     });
   });
 </script>
