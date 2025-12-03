@@ -6,13 +6,8 @@
   <title>Contact - Viceweb</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- EmailJS -->
+  <!-- EmailJS Library -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("kZd8LNzWr8fU4Z5VN"); // <-- Public Key
-    })();
-  </script>
 </head>
 
 <body>
@@ -42,12 +37,9 @@
   <p id="statusMessage"></p>
 </section>
 
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
 <script>
-  // VERY IMPORTANT → your public key
-  emailjs.init("ObFlB4DpI0uY3nqaB"); 
+  // CORRECT Public Key
+  emailjs.init("ObFlB4DpI0uY3nqaB");
 
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
