@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Viceweb</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- EmailJS Library -->
+  <!-- EmailJS library -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your public key (only once)
+    (function(){
+      emailjs.init("ObFlB4DpI0uY3nqaB");
+    })();
+  </script>
 </head>
-
 <body>
 
 <nav>
-  <a href="index.html"><img src="logo.svg" style="width:160px;"></a>
+  <a href="index.html"><img src="logo.svg" alt="Viceweb Logo" style="width:160px; height:auto;"></a>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -22,42 +27,40 @@
   </ul>
 </nav>
 
-<section class="contact-section">
-  <h2>Contact Us</h2>
+<section class="contact-section" style="max-width:720px;margin:40px auto;padding:20px;">
+  <h2 style="text-align:center;margin-bottom:16px;">Contact Us</h2>
 
-  <form id="contactForm">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="title" placeholder="Subject" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+  <form id="contactForm" style="background:#fff;padding:20px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;">
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;">
+    <input type="text" name="title" placeholder="Subject" required style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;">
+    <textarea name="message" placeholder="Your Message" required rows="6" style="width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:6px;"></textarea>
 
-    <button type="submit">Send Message</button>
+    <button type="submit" style="width:100%;padding:12px;background:#000;color:#fff;border:none;border-radius:6px;font-weight:700;cursor:pointer;">Send Message</button>
   </form>
 
-  <p id="statusMessage"></p>
+  <p id="statusMessage" style="text-align:center;margin-top:12px;font-weight:600;"></p>
 </section>
 
 <script>
-  // CORRECT Public Key
-  emailjs.init("ObFlB4DpI0uY3nqaB");
-
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
+  // Submit handler using EmailJS
+  document.getElementById("contactForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_lpmq1v9",   // your service ID
-      "template_gjf55f9",  // your template ID
+      "service_lpmq1v9",   // <-- your Service ID
+      "template_gjf55f9",  // <-- your Template ID
       this
-    ).then(() => {
-      document.getElementById("statusMessage").innerText =
-        "Message Sent Successfully ✔️";
+    ).then(function(){
+      document.getElementById("statusMessage").innerText = "Message Sent Successfully ✔️";
       document.getElementById("contactForm").reset();
-    }, () => {
-      document.getElementById("statusMessage").innerText =
-        "Failed to send ❌";
+    }, function(err){
+      console.error("EmailJS error:", err);
+      document.getElementById("statusMessage").innerText = "Failed to send ❌ — check console for details";
     });
   });
 </script>
 
 </body>
 </html>
+```0
