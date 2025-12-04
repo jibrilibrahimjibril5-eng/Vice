@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Viceweb</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 
-  <!-- EmailJS library -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    // Initialize EmailJS with your public key (only once)
+    // Initialize EmailJS
     (function(){
-      emailjs.init("ObFlB4DpI0uY3nqaB");
+      emailjs.init("c6UP8nIoe5xpREoya"); // PUBLIC KEY
     })();
   </script>
 </head>
+
 <body>
 
 <nav>
-  <a href="index.html"><img src="logo.svg" alt="Viceweb Logo" style="width:160px; height:auto;"></a>
+  <a href="index.html"><img src="logo.svg" style="width:160px;"></a>
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -27,40 +28,45 @@
   </ul>
 </nav>
 
-<section class="contact-section" style="max-width:720px;margin:40px auto;padding:20px;">
-  <h2 style="text-align:center;margin-bottom:16px;">Contact Us</h2>
+<section class="contact-section">
+  <h2>Contact Us</h2>
 
-  <form id="contactForm" style="background:#fff;padding:20px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);">
-    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;">
-    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;">
-    <input type="text" name="title" placeholder="Subject" required style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:6px;">
-    <textarea name="message" placeholder="Your Message" required rows="6" style="width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:6px;"></textarea>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="title" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
-    <button type="submit" style="width:100%;padding:12px;background:#000;color:#fff;border:none;border-radius:6px;font-weight:700;cursor:pointer;">Send Message</button>
+    <button type="submit">Send Message</button>
   </form>
 
-  <p id="statusMessage" style="text-align:center;margin-top:12px;font-weight:600;"></p>
+  <p id="statusMessage"></p>
 </section>
 
 <script>
-  // Submit handler using EmailJS
-  document.getElementById("contactForm").addEventListener("submit", function(e){
+document.getElementById("contactForm").addEventListener("submit", function(e){
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_lpmq1v9",   // <-- your Service ID
-      "template_gjf55f9",  // <-- your Template ID
+      "service_lpmq1v9",   // SERVICE ID
+      "template_6d49n9b",  // TEMPLATE ID
       this
-    ).then(function(){
-      document.getElementById("statusMessage").innerText = "Message Sent Successfully ✔️";
-      document.getElementById("contactForm").reset();
-    }, function(err){
-      console.error("EmailJS error:", err);
-      document.getElementById("statusMessage").innerText = "Failed to send ❌ — check console for details";
+    ).then(() => {
+
+        document.getElementById("statusMessage").innerText =
+          "Message Sent Successfully ✔️";
+
+        this.reset();
+
+    }).catch((error) => {
+
+        console.error("EmailJS Error:", error);
+        document.getElementById("statusMessage").innerText =
+          "Failed to send ❌ — check console";
+
     });
-  });
+});
 </script>
 
 </body>
 </html>
-```0
