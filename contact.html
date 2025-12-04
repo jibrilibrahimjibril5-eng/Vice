@@ -6,14 +6,68 @@
   <title>Contact - Viceweb</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    // Initialize EmailJS
-    (function(){
+    (function() {
       emailjs.init("c6UP8nIoe5xpREoya"); // PUBLIC KEY
     })();
   </script>
+
+  <style>
+    .contact-section {
+      width: 90%;
+      max-width: 450px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact-section button {
+      width: 100%;
+      padding: 12px;
+      background: black;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-section button:hover {
+      background: #444;
+    }
+
+    /* POPUP ALERT */
+    .popup {
+      width: 90%;
+      max-width: 350px;
+      margin: 15px auto;
+      padding: 12px;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .success { background: #28a745; }
+    .error { background: #dc3545; }
+  </style>
+
 </head>
 
 <body>
@@ -37,34 +91,43 @@
     <input type="text" name="title" placeholder="Subject" required>
     <textarea name="message" placeholder="Your Message" required></textarea>
 
-    <button type="submit">Send Message</button>
+    <button type="submit" id="sendBtn">Send Message</button>
   </form>
-
-  <p id="statusMessage"></p>
 </section>
 
+<div id="popupSuccess" class="popup success">Message Sent Successfully ✔️</div>
+<div id="popupError" class="popup error">Failed to send ❌</div>
+
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-    e.preventDefault();
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    emailjs.sendForm(
-      "service_lpmq1v9",   // SERVICE ID
-      "template_6d49n9b",  // TEMPLATE ID
-      this
-    ).then(() => {
+  let btn = document.getElementById("sendBtn");
+  btn.innerText = "Sending…";
 
-        document.getElementById("statusMessage").innerText =
-          "Message Sent Successfully ✔️";
+  emailjs.sendForm(
+    "service_lpmq1v9",   // SERVICE ID
+    "template_6d49n9b",  // TEMPLATE ID
+    this
+  ).then(() => {
 
-        this.reset();
+    btn.innerText = "Send Message";
 
-    }).catch((error) => {
+    let pop = document.getElementById("popupSuccess");
+    pop.style.display = "block";
+    setTimeout(() => { pop.style.display = "none"; }, 3000);
 
-        console.error("EmailJS Error:", error);
-        document.getElementById("statusMessage").innerText =
-          "Failed to send ❌ — check console";
+    document.getElementById("contactForm").reset();
 
-    });
+  }, () => {
+
+    btn.innerText = "Send Message";
+
+    let pop = document.getElementById("popupError");
+    pop.style.display = "block";
+    setTimeout(() => { pop.style.display = "none"; }, 3000);
+
+  });
 });
 </script>
 
