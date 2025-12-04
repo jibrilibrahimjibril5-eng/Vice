@@ -1,65 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viceweb - Contact</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Vice Tech World</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("c6UP8nIoe5xpREoya"); // YOUR PUBLIC KEY
+    })();
+  </script>
 </head>
 <body>
 
 <header>
-    <h2 class="logo">Viceweb</h2>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <div class="logo">Vice </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
 </header>
 
 <section class="page">
-    <h1>Contact Us</h1>
+  <h2>Contact Us</h2>
 
-    <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <input type="text" id="subject" placeholder="Subject" required>
-        <textarea id="message" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
+  <form id="contactForm" class="contact-box">
 
-    <p id="status"></p>
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <input type="text" name="title" placeholder="Subject" required>
+
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit" class="btn">Send Message</button>
+
+    <p id="statusMessage" class="status"></p>
+
+  </form>
+
 </section>
 
-<footer>© 2025 Viceweb. All Rights Reserved.</footer>
-
-
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <script>
-emailjs.init("c6UP8nIoe5xpREoya");
-
-document.getElementById("contactForm").addEventListener("submit", function(e){
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    emailjs.send("service_lpmq1v9","template_6d49n9b",{
-        from_name: document.getElementById("name").value,
-        from_email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-    })
-
-    .then(() => {
-        document.getElementById("status").innerHTML = 
-            "Message Sent Successfully ✔️";
-    })
-
-    .catch(() => {
-        document.getElementById("status").innerHTML =
-            "Failed to send ❌";
+    emailjs.sendForm(
+      "service_lpmq1v9",     // SERVICE ID
+      "template_6d49n9b",    // TEMPLATE ID
+      this
+    ).then(() => {
+      document.getElementById("statusMessage").innerHTML = 
+        "Message Sent Successfully ✔️";
+      document.getElementById("statusMessage").style.color = "green";
+      document.getElementById("contactForm").reset();
+    }, (error) => {
+      document.getElementById("statusMessage").innerHTML = 
+        "Failed to send ❌ — check your EmailJS setup";
+      document.getElementById("statusMessage").style.color = "red";
     });
-});
+  });
 </script>
 
 </body>
