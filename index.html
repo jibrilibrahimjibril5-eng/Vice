@@ -1,28 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vice</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ViceWeb — Modern Web Solutions</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">Vice</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header class="header">
+  <a class="brand" href="index.html">
+    <img src="logo.svg" alt="ViceWeb Logo">
+  </a>
 
-  <section class="hero">
-    <h1>Welcome to Vice </h1>
-    <p>Your trusted partner for modern web solutions</p>
-    <a href="services.html" class="btn">Explore Services</a>
-  </section>
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="left">
+    <h1>We build fast, beautiful websites</h1>
+    <p>ViceWeb helps businesses and individuals get online with modern design and reliable technology — fast deployments, SEO ready and mobile friendly.</p>
+    <p>
+      <a class="btn" href="services.html">Explore Services</a>
+      <a class="btn secondary" href="pricing.html" style="margin-left:12px">View Pricing</a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Get started</h3>
+    <div class="features">
+      <div class="feature"><div class="dot">1</div><div><strong>Fast Delivery</strong><div style="color:var(--muted)">1–2 week typical</div></div></div>
+      <div class="feature"><div class="dot">2</div><div><strong>Responsive</strong><div style="color:var(--muted)">Mobile-first designs</div></div></div>
+      <div class="feature"><div class="dot">3</div><div><strong>Maintenance</strong><div style="color:var(--muted)">Optional support plans</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="services-preview">
+  <h2 style="text-align:center">What We Offer</h2>
+  <div class="services-grid">
+    <div class="service-box"><h3>Web Development</h3><p>Static & dynamic websites, e-commerce, dashboards.</p></div>
+    <div class="service-box"><h3>Branding</h3><p>Logos, identity, visuals that convert.</p></div>
+    <div class="service-box"><h3>SEO & Growth</h3><p>Technical SEO, speed and conversion improvements.</p></div>
+  </div>
+</section>
+
+<section class="pricing">
+  <h2 style="text-align:center">Our Pricing</h2>
+  <div class="pricing-grid">
+    <div class="plan">
+      <h3>Basic</h3>
+      <p class="price">₦7,000</p>
+      <ul><li>1 Page Website</li><li>Responsive</li><li>1-week support</li></ul>
+    </div>
+    <div class="plan popular">
+      <h3>Standard</h3>
+      <p class="price">₦15,000</p>
+      <ul><li>3 Pages</li><li>SEO basics</li><li>2-week support</li></ul>
+    </div>
+    <div class="plan">
+      <h3>Premium</h3>
+      <p class="price">₦30,000</p>
+      <ul><li>5–7 Pages</li><li>E-commerce option</li><li>Maintenance</li></ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2025 ViceWeb • Built with care
+</footer>
 
 </body>
 </html>
