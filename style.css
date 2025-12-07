@@ -10,7 +10,12 @@
   --radius:12px;
   --shadow: 0 6px 18px rgba(15,23,36,0.08);
 }
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
